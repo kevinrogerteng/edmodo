@@ -14,7 +14,7 @@ var getAllAssignments = function(req, res){
         resolve(response.getBody());
       }).catch(function(error){
         //todo : set logger config for error messages;
-        logger.info('info', 'queryEdmodoAssignments failed: ' + error);
+        logger.info('info', 'queryEdmodoAssignments failed: ' + error.body);
         reject(error);
       });
     });
