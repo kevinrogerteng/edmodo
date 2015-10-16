@@ -15,7 +15,7 @@ var getAllAssignments = function(req, res){
         resolve(response.getBody());
       }).catch(function(error){
         //todo : set logger config for error messages;
-        logger.info('info', 'queryEdmodoAssignments failed: ' + error.body);
+        logger.info('error', 'queryEdmodoAssignments failed: ' + error.body);
         reject(error);
       });
     });
@@ -87,7 +87,7 @@ var getAssignment = function(req, res){
 
   function _filterAssignments(assignmentId, creatorId, assignments){
     return _.find(assignments, function(assignment){
-        return (assignment.id.toString() == assignmentId && assignment.creator.id.toString() == creatorId);
+        return (assignment.id.toString() === assignmentId && assignment.creator.id.toString() === creatorId);
     });
   }
   return validateRequest(req).then(getSingleAssignment).then(queryAssignmentSubmissions);
