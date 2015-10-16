@@ -2,7 +2,8 @@
 
 var requestify = require('requestify'),
     Q = require('q'),
-    logger = require('winston');
+    logger = require('winston'),
+    _ = require('underscore');
 
 var getAllAssignments = function(req, res){
   //todo have a request validation (user still logged in?)
@@ -27,7 +28,7 @@ var getAssignment = function(req, res){
   function validateRequest(req){
     return Q.promise(function(resolve, reject){
       req.assignmentId = req.params.assignmentId;
-      req.assignmentCreatorId = req.params.assignmentCreatorId;
+      req.assignmentCreatorId = req.params.creatorId;
       // req.assignmentId = 24800159;
       // req.assignmentCreatorId = 73240721;
       if(req.assignmentId && req.assignmentCreatorId){
@@ -40,7 +41,28 @@ var getAssignment = function(req, res){
     });
   }
 
-  function querySingleEdmodoAssignment(req){
+  function getSingleAssignment(req){
+    // this would be better if there was an api endpoint to get one assignment
+    return Q.promise(function(resolve, reject){
+      var assignmentURL = 'https://api.edmodo.com/assignments?access_token=12e7eaf1625004b7341b6d681fa3a7c1c 551b5300cf7f7f3a02010e99c84695d';
+      requestify.get(assignmentURL).then(function(response){
+        logger.info('info', 'getSingleAssignment successful');
+        req.assignment = _filterAssignments(req.assignmentId, req.assignmentCreatorId, response.getBody());
+        if(req.assignment){
+          resolve(req);
+        } else {
+          logger.info('error', "could not find assignment with ID: " + req.assignmentId);
+          reject({'error': "could not find assignment with ID: " + req.assignmentId});
+        }
+      }).catch(function(error){
+        //todo : set logger config for error messages;
+        logger.info('error', 'queryEdmodoAssignments failed: ' + error.body);
+        reject(error);
+      });
+    });
+  }
+
+  function queryAssignmentSubmissions(req){
     return Q.promise(function(resolve, reject){
       var assignmentURL = 'https://api.edmodo.com/assignment_submissions';
       var accessToken = '12e7eaf1625004b7341b6d681fa3a7c1c 551b5300cf7f7f3a02010e99c84695d';
@@ -52,14 +74,23 @@ var getAssignment = function(req, res){
       };
 
       requestify.get(assignmentURL, {params: params}).then(function(response){
-        resolve(response.getBody());
+        var assignmentObj = {
+          'assignment' : req.assignment,
+          'submissions' : response.getBody()
+        };
+        resolve(assignmentObj);
       }).catch(function(error){
-        reject(error);
+        reject(error.body);
       });
     });
   }
 
-  return validateRequest(req).then(querySingleEdmodoAssignment);
+  function _filterAssignments(assignmentId, creatorId, assignments){
+    return _.find(assignments, function(assignment){
+        return (assignment.id.toString() == assignmentId && assignment.creator.id.toString() == creatorId);
+    });
+  }
+  return validateRequest(req).then(getSingleAssignment).then(queryAssignmentSubmissions);
 };
 
 module.exports = {

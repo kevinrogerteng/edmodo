@@ -12,7 +12,7 @@ module.exports = function(app){
       .done();
   });
 
-  app.get('/api/edmodo/getAssignment', function(req, res){
+  app.get('/api/edmodo/getAssignment/:assignmentId/:creatorId', function(req, res){
     edmodoService.getAssignment(req, res)
       .then(function(response){
         res.send(response);

@@ -3,4 +3,8 @@
 
 <div ng-repeat='assignment in assignments'>
   <div>{{assignment.title}}</div>
+  <div>{{assignment.description}} </div>
+  <a ui-sref='assignments.details({assignmentId: assignment.id, creatorId: assignment.creator.id})'> assignment details </a>
 </div>
+
+<div ui-view></div>

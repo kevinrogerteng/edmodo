@@ -6,7 +6,8 @@
 
   angular.module('Edmodo', [
     'ui.router',
-    'AssignmentModule'
+    'AssignmentModule',
+    'AssignmentDetailModule'
   ]);
 
 })(angular);

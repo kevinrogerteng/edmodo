@@ -12,13 +12,20 @@
       // any other unknown routes, user will be redirected to the home page
       $urlRouterProvider.otherwise('/assignments');
 
-      $stateProvider.state('selectedAssignment', {
-        url: '/assignments/:assignmentId'
+      $stateProvider.state('assignments.details', {
+        url: '/:assignmentId/creator/:creatorId',
+        controller: 'AssignmentDetailController',
+        templateUrl: 'modules/assignmentDetail/templates/assignmentDetails.html',
+        resolve : {
+          Assignment : function(AssignmentDetailService, $stateParams){
+            return AssignmentDetailService.getAssignment($stateParams);
+          }
+        }
       });
 
-      $stateProvider.state('allAssignments', {
+      $stateProvider.state('assignments', {
         url: '/assignments',
-        controller: 'AssignmentController',
+        controller: 'AssignmentsController',
         templateUrl: 'modules/assignment/templates/assignments.html',
         resolve: {
           Assignments: function(AssignmentService){
