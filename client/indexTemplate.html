@@ -4,7 +4,6 @@
   <head>
     <!-- add meta tags -->
     <title> Edmodo </title>
-      <link rel="stylesheet" href="bower_components/foundation/css/foundation.css" />
       <!-- injector:css -->
       <!-- endinjector -->
       <!-- bower:css -->
@@ -12,7 +11,16 @@
   </head>
 
   <body>
-    <div ui-view></div>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Edmodo</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="main" ui-view></div>
       <!-- bower:js -->
       <!-- endbower -->
       <!-- injector:js -->

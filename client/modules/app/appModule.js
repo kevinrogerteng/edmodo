@@ -7,7 +7,10 @@
   angular.module('Edmodo', [
     'ui.router',
     'AssignmentModule',
-    'AssignmentDetailModule'
-  ]);
+    'AssignmentDetailModule',
+    'angularMoment'
+  ]).run(function(amMoment){
+    amMoment.changeLocale('en');
+  });
 
 })(angular);

@@ -62,6 +62,7 @@ module.exports = function(grunt){
 
     wiredep: {
       dev: {
+        files: ['bower.json'],
         src: ['<%= FILE_PATHS.client %>/index.html']
       },
       prod: {

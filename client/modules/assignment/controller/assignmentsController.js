@@ -5,9 +5,10 @@
     .module('AssignmentModule')
     .controller('AssignmentsController', AssignmentsController);
 
-    AssignmentsController.$inject = ['$scope', 'Assignments', 'AssignmentService'];
+    AssignmentsController.$inject = ['$scope', '$state', 'Assignments', 'AssignmentService'];
 
-    function AssignmentsController($scope, Assignments, AssignmentService){
+    function AssignmentsController($scope,$state, Assignments, AssignmentService){
       $scope.assignments = Assignments;
     }
+    
 })(angular);

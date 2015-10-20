@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    <h2> Assignments </h2>
+    <li class="assignment" ng-class="{selected: $state.params.assignmentId.toString() === assignment.id.toString()}" ng-repeat="assignment in assignments">
+       <a ui-sref="assignments.details({assignmentId: assignment.id, creatorId: assignment.creator.id})"> <h4>{{assignment.title}}</h4> <h5>due at <span>{{assignment.due_at | amDateFormat:"MMM DD YYYY"}}</span></h5></a>
+    </li>
+  </ul>
+</div>

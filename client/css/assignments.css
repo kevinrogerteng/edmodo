@@ -1,0 +1,23 @@
+/*style sheet for assignments widget*/
+
+.main {
+  margin: 10px;
+}
+
+.selected {
+  background-color: #1d70c4;
+}
+
+li.selected h4 {
+  color: #fff;
+}
+
+li.selected h5 {
+  color:#fff;
+}
+
+li.assignment {
+  list-style-type: none;
+  border: 1px solid #000;
+  padding: 10px;
+}
