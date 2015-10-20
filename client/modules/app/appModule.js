@@ -8,7 +8,8 @@
     'ui.router',
     'AssignmentModule',
     'AssignmentDetailModule',
-    'angularMoment'
+    'angularMoment',
+    'mm.foundation'
   ]).run(function(amMoment){
     amMoment.changeLocale('en');
   });

@@ -1,0 +1,13 @@
+<div>
+  <ul class='submissions'>
+    <li ng-repeat="submission in submissions">
+     <div><img ng-src="{{submission.creator.avatars.small}}" /> {{submission.creator.first_name}} {{submission.creator.last_name}}</div>
+
+    <div>
+      {{submission.content}}
+    </div>
+
+    </li>
+  </ul>
+
+</div>

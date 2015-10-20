@@ -8,10 +8,6 @@
 
     function EdAssignmentWidgetDirective(){
 
-      function _link(scope, iElement){
-
-      }
-
       return {
         restrict: 'EA',
         replace: false,
@@ -19,8 +15,7 @@
           assignments: '='
         },
         controller: EdAssignmentWidgetController,
-        templateUrl: 'modules/assignment/templates/assignment-widget.html',
-        link: _link
+        templateUrl: 'modules/assignment/templates/assignments-widget.html'
       };
     }
 

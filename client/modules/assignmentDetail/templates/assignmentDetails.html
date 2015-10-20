@@ -1,6 +1,10 @@
-<h1> Hi i am details! </h1>
+<tabset>
+  <tab ng-repeat="tab in tabs" heading="{{tab.tabName}}" active="tab.active">
 
-<div ng-repeat='submission in submissions'>
-  <img  ng-src={{submission.creator.avatars.small}} />
-  <div>{{submission.content}}</div>
-</div>
+    <single-assignment-detail ng-if="tab.tabName === 'Assignment'" assignment='tab.content'>
+    </single-assignment-detail>
+
+    <student-submissions ng-if="tab.tabName === 'Submissions'" submissions='tab.content'>
+    </studnt-submissions>
+  </tab>
+</tabset>

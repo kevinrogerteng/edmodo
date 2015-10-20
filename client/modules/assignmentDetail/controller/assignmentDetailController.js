@@ -8,7 +8,22 @@
     AssignmentDetailController.$inject = ['$scope', 'Assignment', 'AssignmentDetailService'];
 
     function AssignmentDetailController($scope, Assignment, AssignmentDetailService){
-      $scope.assignment = Assignment;
-      $scope.submissions = $scope.assignment.submissions;
+      var assignment = Assignment.assignment;
+      var submissions = Assignment.submissions;
+
+      console.log(submissions);
+
+      $scope.tabs = [
+          {
+            tabName: 'Assignment',
+            content: assignment,
+            defaultView: true
+          },
+          {
+            tabName: 'Submissions',
+            content: submissions,
+            defaultView: false
+          }
+      ];
     }
 })(angular);

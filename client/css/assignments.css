@@ -21,3 +21,10 @@ li.assignment {
   border: 1px solid #000;
   padding: 10px;
 }
+
+/* foundation overrides */
+
+.tabs dd.active > a, .tabs .tab-title.active > a {
+    background-color: #1d70c4!important;
+    color: #fff!important;
+}
