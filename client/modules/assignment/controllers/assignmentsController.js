@@ -9,6 +9,7 @@
 
     function AssignmentsController($scope,$state, Assignments, AssignmentService){
       $scope.assignments = Assignments;
+      $scope.$state = $state;
     }
     
 })(angular);

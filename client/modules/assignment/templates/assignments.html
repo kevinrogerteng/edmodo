@@ -3,5 +3,12 @@
     <ed-assignment-widget assignments=assignments></ed-assignment-widget>
   </div> <!-- small-4 columns -->
 
-  <div ui-view class='medium-8 columns'></div>
+  <div class='medium-8 columns' ng-if='!$state.params.assignmentId'>
+    <div class="select-message">
+      <h4> Select an Assignment </h4>
+    </div>
+  </div>
+
+  <div ui-view class='medium-8 columns assignment-details' ng-if='$state.params.assignmentId'></div>
+
 </div>
