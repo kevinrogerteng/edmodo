@@ -11,7 +11,7 @@
       var assignment = Assignment.assignment;
       var submissions = Assignment.submissions;
 
-      console.log(submissions);
+      // console.log(submissions);
 
       $scope.tabs = [
           {

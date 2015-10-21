@@ -18,8 +18,17 @@ li.selected h5 {
 
 li.assignment {
   list-style-type: none;
-  border: 1px solid #000;
+  border: 1px solid #B8BDBF;
   padding: 10px;
+}
+
+li.assignment:hover {
+  background-color: #609BD6;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 /* foundation overrides */
@@ -27,4 +36,24 @@ li.assignment {
 .tabs dd.active > a, .tabs .tab-title.active > a {
     background-color: #1d70c4!important;
     color: #fff!important;
+}
+
+.accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.accordion .accordion-navigation > a, .accordion dd > a {
+  border-bottom: 1px solid #B8BDBF;
+}
+
+.accordion .accordion-navigation > a, .accordion dd > a {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }

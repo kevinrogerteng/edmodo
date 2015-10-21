@@ -8,6 +8,10 @@
 
     function studentSubmissionsDirective(){
 
+      function _link(scope, el){
+        // console.log(el.find('accordion-group'));
+      }
+
       return {
         restrict: 'EA',
         replace: false,
@@ -15,7 +19,8 @@
           submissions: '='
         },
         controller: StudentSubmissionController,
-        templateUrl: 'modules/assignmentDetail/templates/student-submissions.html'
+        templateUrl: 'modules/assignmentDetail/templates/student-submissions.html',
+        link: _link
       };
     }
 
@@ -23,7 +28,8 @@
 
     function StudentSubmissionController($scope, $state){
       $scope.$state = $state;
-      console.log($scope.submissions);
+      $scope.oneAtATime = true;
+      // console.log($scope.submissions);
     }
 
 

@@ -1,13 +1,11 @@
 <div>
-  <ul class='submissions'>
-    <li ng-repeat="submission in submissions">
-     <div><img ng-src="{{submission.creator.avatars.small}}" /> {{submission.creator.first_name}} {{submission.creator.last_name}}</div>
-
-    <div>
+  <accordion close-others="oneAtATime">
+    <accordion-group ng-repeat="submission in submissions">
+    <accordion-heading> 
+      <h4><img ng-src="{{submission.creator.avatars.small}}" /> {{submission.creator.first_name}} {{submission.creator.last_name}}</h4>
+      <h5>turned in <span>{{submission.submitted_at | amDateFormat:"MMM DD YYYY"}}</span></h5></a>
+    </accordion-heading>
       {{submission.content}}
-    </div>
-
-    </li>
-  </ul>
-
+    </accordion-group>
+  </accordion>
 </div>
