@@ -31,6 +31,13 @@ li.assignment:hover {
   transition: all 300ms ease-in-out;
 }
 
+.loader {
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  z-index: 10000;
+}
+
 /* foundation overrides */
 
 .tabs dd.active > a, .tabs .tab-title.active > a {

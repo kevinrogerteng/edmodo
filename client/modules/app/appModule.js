@@ -9,7 +9,8 @@
     'AssignmentModule',
     'AssignmentDetailModule',
     'angularMoment',
-    'mm.foundation'
+    'mm.foundation',
+    'LoaderModule'
   ]).run(function(amMoment){
     amMoment.changeLocale('en');
   });
