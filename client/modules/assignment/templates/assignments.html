@@ -1,14 +1,34 @@
-<div class='row'>
-  <div class='medium-4 columns'>
+<script type="text/ng-template" id="createAssignment.html">
+  <h2> Creating a new assignment </h2>
+    <form>
+      <div class="row">
+        <div class="large-12 columns">
+          <label>Assignment Name
+            <input type="text" placeholder="large-12.columns" />
+          </label>
+          <label>Assignment Name
+            <textarea type="text" placeholder="medium-12.columns" />
+          </label>
+        </div>
+      </div>
+    </form>
+  <button class="button" ng-click="ok()">OK</button>
+</script>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class='assignment-header'><h2> Assignments </h2>
+      <a href="#" class="button" ng-click="createAssignment($event)"> <i class="fa fa-plus"> </i></a>
+    </div>
     <ed-assignment-widget assignments=assignments></ed-assignment-widget>
   </div> <!-- small-4 columns -->
 
-  <div class='medium-8 columns' ng-if='!$state.params.assignmentId'>
+  <div class="col-md-8" ng-if="!$state.params.assignmentId">
     <div class="select-message">
       <h4> Select an Assignment </h4>
     </div>
   </div>
 
-  <div ui-view class='medium-8 columns assignment-details' ng-if='$state.params.assignmentId'></div>
+  <div ui-view class="col-md-8 assignment-details" ng-if="$state.params.assignmentId"></div>
 
 </div>

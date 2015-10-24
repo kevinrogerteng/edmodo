@@ -4,6 +4,6 @@
 
 (function(angular){
 
-  angular.module('AssignmentModule', []);
+  angular.module('AssignmentModule', ['ui.bootstrap']);
 
 })(angular);

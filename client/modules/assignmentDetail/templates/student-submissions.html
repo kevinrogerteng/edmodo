@@ -2,8 +2,10 @@
   <accordion close-others="oneAtATime">
     <accordion-group ng-repeat="submission in submissions">
     <accordion-heading> 
-      <h4><img ng-src="{{submission.creator.avatars.small}}" /> {{submission.creator.first_name}} {{submission.creator.last_name}}</h4>
-      <h5>turned in <span>{{submission.submitted_at | amDateFormat:"MMM DD YYYY"}}</span></h5></a>
+      <img ng-src="{{submission.creator.avatars.small}}" class='submission-avatars'/> 
+
+      <h4>{{submission.creator.first_name}} {{submission.creator.last_name}}</h4>
+      turned in <span>{{submission.submitted_at | amDateFormat:"MMM DD YYYY"}}</span>
     </accordion-heading>
       {{submission.content}}
     </accordion-group>

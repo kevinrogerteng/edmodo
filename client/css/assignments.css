@@ -52,6 +52,10 @@ ul.assignment-widget {
   margin-right: -50%;
 }
 
+.submission-avatars {
+  float:left;
+}
+
 .loader-modal {
   background: rgba(0, 0, 0, 0.2);
   position: fixed;
