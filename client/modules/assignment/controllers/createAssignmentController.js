@@ -28,7 +28,7 @@
       };
 
       $scope.ok = function () {
-        $scope.newAssignment.due_at = moment.utc($scope.newAssignment.dueDate).format()
+        $scope.newAssignment.due_at = moment.utc($scope.newAssignment.due_at).format()
         $modalInstance.close($scope.newAssignment);
         console.log($scope.newAssignment);
       };
