@@ -1,24 +1,41 @@
 <script type="text/ng-template" id="createAssignment.html">
-  <h2> Creating a new assignment </h2>
+
+  <div class="modal-header">
+    <h3 class="modal-title">Creating a new assignment</h3>
+  </div>
+
+  <div class="modal-body">
     <form>
       <div class="row">
-        <div class="large-12 columns">
-          <label>Assignment Name
-            <input type="text" placeholder="large-12.columns" />
-          </label>
-          <label>Assignment Name
-            <textarea type="text" placeholder="medium-12.columns" />
-          </label>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="assignmentName">Assignment Title</label>
+            <input type="text" class="form-control" placeholder="Name of Assignment" ng-model="newAssignment.title">
+          </div>
+          <div class="form-group">
+            <label for="assignmentDescription">Assignment Description</label>
+            <textarea class="form-control" placeholder="Description" rows="3" ng-model='newAssignment.description'></textarea>
+          </div>
+          <div class="form-group">
+            <label for="assignmentDuedate"> Assignment Due Date </label>
+            <datetimepicker data-ng-model="newAssignment.due_at" data-before-render="beforeRender($dates)" data-datetimepicker-config="{ startView:'day'}"></datetimepicker>
+          </div>
         </div>
       </div>
     </form>
-  <button class="button" ng-click="ok()">OK</button>
+  </div>
+    
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+
 </script>
 
 <div class="row">
   <div class="col-md-4">
-    <div class='assignment-header'><h2> Assignments </h2>
-      <a href="#" class="button" ng-click="createAssignment($event)"> <i class="fa fa-plus"> </i></a>
+    <div class='assignment-header'>
+      <h2> Assignments <a href="#" class="button add-assignment" ng-click="createAssignment($event)"> <i class="fa fa-plus"> </i></a> </h2>
     </div>
     <ed-assignment-widget assignments=assignments></ed-assignment-widget>
   </div> <!-- small-4 columns -->

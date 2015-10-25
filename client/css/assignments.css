@@ -8,6 +8,14 @@
   background-color: #1d70c4;
 }
 
+div.assignment-header {
+  margin-left: 40px;
+}
+
+div.assignment-header .add-assignment{
+  float:right;
+}
+
 li.selected h4 {
   color: #fff;
 }

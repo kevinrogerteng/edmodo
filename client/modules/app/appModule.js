@@ -10,7 +10,8 @@
     'AssignmentDetailModule',
     'angularMoment',
     'ui.bootstrap',
-    'LoaderModule'
+    'LoaderModule',
+    'ui.bootstrap.datetimepicker'
   ]).run(function(amMoment){
     amMoment.changeLocale('en');
   });
