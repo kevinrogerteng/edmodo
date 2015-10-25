@@ -11,7 +11,7 @@
       $scope.newAssignment = {};
 
       $scope.beforeRender = function($dates){
-        var now = parseInt(moment().unix() + "000");
+        var now = parseInt(moment().unix() + "000"); // jshint ignore:line
 
         angular.forEach($dates, function(date, index){
 
@@ -24,11 +24,11 @@
             $scope.newAssignment.due_at = $dates.utcDateValue;
           }
 
-        })
+        });
       };
 
       $scope.ok = function () {
-        $scope.newAssignment.due_at = moment.utc($scope.newAssignment.due_at).format()
+        $scope.newAssignment.due_at = moment.utc($scope.newAssignment.due_at).format(); // jshint ignore:line
         $modalInstance.close($scope.newAssignment);
         console.log($scope.newAssignment);
       };

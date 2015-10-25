@@ -28,6 +28,12 @@
           });
 
           return deferred.promise;
+        },
+
+        createAssignment: function(assignment){
+          //normally we do an http request, but we don't have that endpoint right now
+          var deferred = $q.defer();
+          assignment.id = Math.floor(Math.random() * 10000000);
         }
       };
     }

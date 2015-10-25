@@ -82,29 +82,8 @@ ul.assignment-widget {
   z-index: 10001;
 }
 
-/* foundation overrides */
+/* bootstrap overrides */
 
-.tabs dd.active > a, .tabs .tab-title.active > a {
-    background-color: #1d70c4!important;
-    color: #fff!important;
-}
-
-.accordion .accordion-navigation > a:hover, .accordion dd > a:hover {
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -ms-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-}
-
-.accordion .accordion-navigation > a, .accordion dd > a {
-  border-bottom: 1px solid #B8BDBF;
-}
-
-.accordion .accordion-navigation > a, .accordion dd > a {
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+nav.navbar {
+  border-radius: 0px;
 }
